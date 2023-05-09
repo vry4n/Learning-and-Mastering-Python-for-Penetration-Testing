@@ -6,6 +6,15 @@ import re
 interface = sys.argv[1]  # Replace with your interface name
 new_mac = sys.argv[2]  # Replace with the desired MAC address
 
+def get_current_mac(interface):
+    ifconfig_result = subprocess.check_output(["ifconfig", interface]).decode("utf-8")
+    mac_address_match = re.search(r"(\w\w:\w\w:\w\w:\w\w:\w\w:\w\w)", ifconfig_result)
+
+    if mac_address_match:
+        return mac_address_match.group(0)
+    else:
+        print("Could not read MAC address.")
+
 def change_mac(interace, new_mac):
     print(f"Changing MAC address for {interface} to {new_mac}")
 
@@ -17,15 +26,6 @@ def change_mac(interace, new_mac):
 
     # Enable the interface
     subprocess.call(["ifconfig", interface, "up"])
-
-def get_current_mac(interface):
-    ifconfig_result = subprocess.check_output(["ifconfig", interface]).decode("utf-8")
-    mac_address_match = re.search(r"(\w\w:\w\w:\w\w:\w\w:\w\w:\w\w)", ifconfig_result)
-
-    if mac_address_match:
-        return mac_address_match.group(0)
-    else:
-        print("Could not read MAC address.")
 
 current_mac = get_current_mac(interface)
 print(f"Current MAC address: {current_mac}")
