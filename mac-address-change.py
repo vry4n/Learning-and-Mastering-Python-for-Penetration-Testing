@@ -1,6 +1,6 @@
 import sys
-import subprocess
 import re
+import subprocess
 
 # Accept script parameters
 interface = sys.argv[1]  # Replace with your interface name
