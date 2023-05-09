@@ -33,7 +33,7 @@ print(f"Current MAC address: {current_mac}")
 change_mac(interface, new_mac)
 
 current_mac = get_current_mac(interface)
-if current_mac == new_mac:
+if current_mac != new_mac:
     print(f"MAC address successfully changed to {current_mac}")
 else:
     print("MAC address did not get changed.")
