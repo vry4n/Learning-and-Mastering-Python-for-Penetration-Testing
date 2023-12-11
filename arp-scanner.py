@@ -44,4 +44,4 @@ try:
         for device in scan_result:
             print(f"{device['ip']}\t{device['mac']}")
 except NameError:
-    print("[-] Warning: Something went wrong.")
+    print("[-] Warning: Something went wrong. Try using SUDO.")
