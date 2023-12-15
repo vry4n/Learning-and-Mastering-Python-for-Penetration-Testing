@@ -28,6 +28,3 @@ if os.path.exists(wordlist_path):
 
     # Call the function to enumerate files
     enumerate_files(base_url, wordlist)
-else:
-    # check if the wordlist location is right
-    print(f"Wordlist file not found: {wordlist_path}")
