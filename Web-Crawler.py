@@ -7,8 +7,6 @@ import urllib.parse as urlparse
 
 # change this value
 target_url = '<URL>'
-# create an empty list
-target_links = []
 
 # query the website and extract content
 def extract_links_from(url):
