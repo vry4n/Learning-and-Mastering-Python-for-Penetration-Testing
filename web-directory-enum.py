@@ -26,5 +26,5 @@ if os.path.exists(wordlist_path):
         # iterate through each line
         wordlist = [line.strip() for line in file.readlines()]
 
-    # Call the function to enumerate files
-    enumerate_files(base_url, wordlist)
+# Call the function to enumerate files
+enumerate_files(base_url, wordlist)
