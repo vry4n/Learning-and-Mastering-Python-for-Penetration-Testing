@@ -3,12 +3,11 @@
 import subprocess # Used to execute external commands (ping in this case)
 import ipaddress # Used to validate and work with IP network addresses.
 
-def scan_network(network, count=100): #  (IP address and mask) and count (number of hosts to scan) as arguments.
+def scan_network(network): #  (IP address and mask)
   try:
     network = ipaddress.ip_network(network) # Validates the network input using ipaddress.ip_network.
   except ValueError:
     print(f"Invalid network address: {network}")
-    return []
 
   live_hosts = []
   for host in network.hosts(): # Iterates through the hosts within the specified network range using network.hosts().
